@@ -65,4 +65,36 @@ export const encryption = str => {
     const finalResponse = buildingFinalResponse(grid);
 
     return finalResponse;
-} 
+}
+
+/* Challenge 2 */
+
+export const caesarCipher = (str, num) => {
+
+    const alphabet = [];
+
+    /*Building Alphabet */
+    for (let i = 97; i <= 122; i++) {
+        alphabet.push(String.fromCharCode(i))
+    }
+
+    const getNewLetter = letter => {
+        let ind;
+
+        const areYouUpperCase = letter => (letter === letter.toUpperCase())
+
+        alphabet.forEach((el, index) => {
+            if (el === letter.toLowerCase()) {
+                ind = index;
+            }
+        })
+        const position = (ind + num <= 25) ? (ind + num) : (ind + num) % 26;
+        return areYouUpperCase(letter) ? alphabet[position].toUpperCase() : alphabet[position];
+    }
+
+    const encryptedStr = str.split("").map(el => {
+        return (/[A-Za-z]/.test(el)) ? getNewLetter(el) : el;
+    })
+
+    return encryptedStr.join("");
+}
