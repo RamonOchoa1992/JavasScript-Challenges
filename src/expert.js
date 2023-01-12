@@ -98,3 +98,36 @@ export const caesarCipher = (str, num) => {
 
     return encryptedStr.join("");
 }
+
+
+/* Challenge 3 */
+
+export const validName = str => {
+    const terms = str.split(" ");
+    const termsLength = terms.length;
+    const regExpInitial = /^[A-Z]{1}\.$/
+
+    const isCapitalized = term => term[0] === term[0].toUpperCase();
+
+    const isValidInitial = term => regExpInitial.test(term);
+
+    const isValidWord = term => (term.length >= 2 && !term.includes(".") && isCapitalized(term))
+
+
+    if (termsLength > 3) return { state: false, response: "A name must be either 2 or 3 terms long." }
+
+    if (termsLength === 1) return { state: false, response: "Single names not allowed. Must be 2 or 3 words" }
+
+    if (termsLength === 3) {
+        if (isValidInitial(terms[0]) && isValidWord(terms[1])) return { state: false, response: "You cannot keep the first name as an initial and expand the middle name only" }
+    }
+
+    if (!isValidWord(terms[termsLength - 1])) return { state: false, response: "The last name must be a word" };
+
+    let count = 0;
+    terms.forEach(el => {
+        if (isValidInitial(el) || isValidWord(el)) count++;
+    })
+
+    return count === termsLength ? { state: true, response: "Correct" } : { state: false, response: "Incorrect" };
+}
