@@ -99,7 +99,6 @@ export const caesarCipher = (str, num) => {
     return encryptedStr.join("");
 }
 
-
 /* Challenge 3 */
 
 export const validName = str => {
@@ -130,4 +129,59 @@ export const validName = str => {
     })
 
     return count === termsLength ? { state: true, response: "Correct" } : { state: false, response: "Incorrect" };
+}
+
+/* Challenge 4 */
+
+export const timeToEat = str => {
+
+    const convertingToHour = hourStr => {
+        const isPm = () => hourStr.includes("p.m.")
+        const hour = (isPm() && (+hourStr.slice(0, hourStr.indexOf(":")) !== 12))
+            ? +hourStr.slice(0, hourStr.indexOf(":")) + 12
+            : (isPm() && (+hourStr.slice(0, hourStr.indexOf(":")) === 12))
+                ? 12
+                : (!isPm() && (+hourStr.slice(0, hourStr.indexOf(":")) !== 12))
+                    ? +hourStr.slice(0, hourStr.indexOf(":"))
+                    : 0;
+        const minute = +hourStr.slice(hourStr.indexOf(":") + 1, hourStr.indexOf(":") + 3)
+        return { hour, minute, isPm };
+    }
+
+    const convertingToDate = ({ hour, minute }) => {
+        const date = new Date().getDate();
+        const month = new Date().getMonth();
+        const year = new Date().getFullYear();
+
+        const time = new Date(year, month, date, hour, minute, 0).getTime();
+
+        return time;
+    }
+
+    const mealHours = ["7:00 a.m.", "12:00 p.m.", "7:00 p.m."];
+
+    const mealTimes = mealHours.map(el => convertingToDate(convertingToHour(el)));
+
+    const sortedMealTimes = [...mealTimes].sort((a, b) => b - a);
+
+    const strTime = convertingToDate(convertingToHour(str));
+
+    const getTimes = () => {
+        let element;
+        let count = 0;
+        sortedMealTimes.forEach(el => {
+            if (strTime <= el) {
+                element = el;
+                count++;
+            }
+        })
+        return count > 0 ? [strTime, element] : [strTime, convertingToDate(convertingToHour("7:00 a.m.")) + (24 * 60 * 60 * 1000)]
+    }
+
+    const difference = getTimes()[1] - getTimes()[0];
+
+    const hora = Math.floor(difference / 1000 / 60 / 60)
+    const minute = (difference / 1000 / 60) % 60;
+
+    return [hora, minute];
 }
