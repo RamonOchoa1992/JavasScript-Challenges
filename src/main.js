@@ -4,6 +4,7 @@ import {
   validName,
   timeToEat,
   langtons_ant,
+  intToVlq,
 } from "./expert.js";
 
 /*Challenge 1 */
@@ -32,3 +33,6 @@ console.log(
     1
   )
 );
+
+/*Challenge 6 */
+console.log(intToVlq([229, 145, 63]));

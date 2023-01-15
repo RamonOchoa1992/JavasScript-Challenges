@@ -298,3 +298,67 @@ export const langtons_ant = (grid, column, row, n, direction) => {
 
   return antState.gridSt;
 };
+
+/* Challenge 6 */
+export const intToVlq = (value) => {
+  const breakUpSevenGroups = (bytes) => {
+    console.log(bytes);
+    const binaryArray = [];
+    let reversedBytes = bytes.split("").reverse();
+    let count = 0;
+    const iter = Math.ceil(bytes.length / 7);
+    let status = false;
+
+    for (let i = 0; i < iter; i++) {
+      const rest = 7 - reversedBytes.length;
+      if (rest > 0) {
+        for (let j = 0; j < rest; j++) {
+          reversedBytes.push("0");
+          if (!reversedBytes.includes("1")) status = true;
+        }
+      }
+      let str = reversedBytes.slice(0, 7);
+      str = str.reverse();
+      str.unshift(count + "");
+      str = str.join("");
+      reversedBytes.splice(0, 7);
+      if (!status) binaryArray.push(str);
+      count = 1;
+    }
+    const decimalArray = [...binaryArray]
+      .reverse()
+      .map((el) => parseInt(el, 2));
+    return decimalArray;
+  };
+
+  if (typeof value === "number") {
+    let binaryNum = value.toString(2);
+    const mod = 8 - (binaryNum.length % 8);
+
+    if (mod !== 8) {
+      const binaryArr = binaryNum.split("");
+      for (let i = 0; i < mod; i++) {
+        binaryArr.unshift("0");
+      }
+      binaryNum = binaryArr.join("");
+    }
+
+    return value <= 127
+      ? parseInt(binaryNum, 2)
+      : breakUpSevenGroups(binaryNum);
+  } else if (value instanceof Array) {
+    const reverseArray = value.reverse();
+    let num = 0;
+    reverseArray.forEach((el, index) => {
+      if (index === 0) {
+        num += el;
+      } else {
+        const sum = (el - 128) * Math.pow(128, index);
+        num += sum;
+      }
+    });
+    return num;
+  } else {
+    return "You must enter a number or an array";
+  }
+};
