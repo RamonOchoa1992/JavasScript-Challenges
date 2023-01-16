@@ -5,6 +5,7 @@ import {
   timeToEat,
   langtons_ant,
   intToVlq,
+  distanceToNearestVowel
 } from "./expert.js";
 
 /*Challenge 1 */
@@ -36,3 +37,6 @@ console.log(
 
 /*Challenge 6 */
 console.log(intToVlq([229, 145, 63]));
+
+/*Challenge 7 */
+console.log(distanceToNearestVowel("shopper"));
