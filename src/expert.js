@@ -406,3 +406,35 @@ export const distanceToNearestVowel = str => {
 
     return distanceArr;
 }
+
+/* Challenge 8 */
+
+export const numThenChar = grid => {
+    const lengthArray = [];
+    let fullStr = [];
+    let finalStr = [];
+    let initialPos = 0;
+
+    const isLetter = el => /[A-Za-z]/.test(el);
+    const isNumber = el => /[0-9]/.test(el);
+
+    grid.forEach(el => {
+        fullStr = [...fullStr, ...el];
+        lengthArray.push(el.length);
+    })
+
+    const strLetter = fullStr.filter(el => isLetter(el)).sort();
+    const strNum = fullStr.filter(el => isNumber(el)).sort((a, b) => a - b)
+
+    const sortedFullStr = [...strNum, ...strLetter]
+
+    if (sortedFullStr.length !== fullStr.length) return "All the character must be numbers o letters"
+
+    lengthArray.forEach(el => {
+        let finalPos = initialPos + el;
+        finalStr = [...finalStr, [...sortedFullStr.slice(initialPos, finalPos)]];
+        initialPos = finalPos;
+    })
+
+    return finalStr;
+}

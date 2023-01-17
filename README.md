@@ -27,3 +27,7 @@ https://edabit.com/challenge/M9AmkND2m9B42PRAe
 # Challenge 7
 
 https://edabit.com/challenge/b9FBAhxaijR9fzxgo
+
+# Challenge 8
+
+https://edabit.com/challenge/wkD5ChYH9ukyNSmZm
