@@ -6,7 +6,8 @@ import {
   langtons_ant,
   intToVlq,
   distanceToNearestVowel,
-  numThenChar
+  numThenChar,
+  ascending,
 } from "./expert.js";
 
 /*Challenge 1 */
@@ -43,10 +44,16 @@ console.log(intToVlq([229, 145, 63]));
 console.log(distanceToNearestVowel("shopper"));
 
 /*Challenge 8 */
-console.log(numThenChar([
-  [1, 2, 4.4, "f", "a", "b"],
-  [0], [0.5, "d", "X", 3, "s"],
-  ["f", "e", 8],
-  ["p", "Y", "Z"],
-  [12, 18]
-]));
+console.log(
+  numThenChar([
+    [1, 2, 4.4, "f", "a", "b"],
+    [0],
+    [0.5, "d", "X", 3, "s"],
+    ["f", "e", 8],
+    ["p", "Y", "Z"],
+    [12, 18],
+  ])
+);
+
+/*Challenge 9 */
+console.log(ascending("2324256"));
