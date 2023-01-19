@@ -8,6 +8,7 @@ import {
   distanceToNearestVowel,
   numThenChar,
   ascending,
+  cFuge,
 } from "./expert.js";
 
 /*Challenge 1 */
@@ -57,3 +58,7 @@ console.log(
 
 /*Challenge 9 */
 console.log(ascending("2324256"));
+
+/*Challenge 10 */
+
+console.log(cFuge(21, 3))
