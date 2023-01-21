@@ -558,12 +558,11 @@ export const cFuge = (hole, tube) => {
 };
 
 /* Challenge 11 */
-let value;
+
 let state = [];
 export const leftSlide = (arr) => {
   const isPowerOfTwo = (num) => {
-    value = num;
-    while (!value.toString().includes(".")) {
+    while (!num.toString().includes(".")) {
       const div = num / 2;
       state.push(div === 1);
       return isPowerOfTwo(div);
@@ -605,3 +604,10 @@ export const leftSlide = (arr) => {
 
   return slidingArr;
 };
+
+/* Challenge 12 */
+export const longestNonrepeatingSubstring = (str) =>
+  str
+    .split("")
+    .filter((el, index, string) => !string.slice(0, index).includes(el))
+    .join("");

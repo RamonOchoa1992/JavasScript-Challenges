@@ -43,3 +43,7 @@ https://edabit.com/challenge/T4KHxHe8n4cy2hcME
 # Challenge 11
 
 https://edabit.com/challenge/jmamZufrqZkhH7ZLM
+
+# Challenge 12
+
+https://edabit.com/challenge/vHJrWvyEiiGp5yZtX

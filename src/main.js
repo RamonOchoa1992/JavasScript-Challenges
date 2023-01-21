@@ -10,6 +10,7 @@ import {
   ascending,
   cFuge,
   leftSlide,
+  longestNonrepeatingSubstring,
 } from "./expert.js";
 
 /*Challenge 1 */
@@ -67,3 +68,7 @@ console.log(cFuge(21, 3));
 /*Challenge 11 */
 
 console.log(leftSlide([0, 2, 2, 8, 8, 8]));
+
+/*Challenge 12 */
+
+console.log(longestNonrepeatingSubstring("abcabcbb"));
