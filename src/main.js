@@ -9,6 +9,7 @@ import {
   numThenChar,
   ascending,
   cFuge,
+  leftSlide,
 } from "./expert.js";
 
 /*Challenge 1 */
@@ -61,4 +62,8 @@ console.log(ascending("2324256"));
 
 /*Challenge 10 */
 
-console.log(cFuge(21, 3))
+console.log(cFuge(21, 3));
+
+/*Challenge 11 */
+
+console.log(leftSlide([0, 2, 2, 8, 8, 8]));
