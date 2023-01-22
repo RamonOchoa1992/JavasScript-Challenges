@@ -606,8 +606,38 @@ export const leftSlide = (arr) => {
 };
 
 /* Challenge 12 */
+
 export const longestNonrepeatingSubstring = (str) =>
   str
     .split("")
     .filter((el, index, string) => !string.slice(0, index).includes(el))
     .join("");
+
+/* Challenge 13 */
+
+/*How to determine whether a year is a leap year
+
+To determine whether a year is a leap year, follow these steps:
+
+   1- If the year is evenly divisible by 4, go to step 2. Otherwise, go to step 5.
+   2- If the year is evenly divisible by 100, go to step 3. Otherwise, go to step 4.
+   3- If the year is evenly divisible by 400, go to step 4. Otherwise, go to step 5.
+   4- The year is a leap year (it has 366 days).
+   5- The year is not a leap year (it has 365 days).
+   
+   Notes
+
+You can't use the Date class, switch statements, if statements in general, the ternary operator, or the logical operators (&&, ||).
+   */
+
+export const leapYear = (year) => {
+  const yearDivide400 = (year / 400).toFixed(2);
+  const lastTwoChar = yearDivide400.slice(-2);
+  const specialChar = ["25", "50", "75"];
+  const yearDivide4 = year % 4 === 0;
+
+  const yearArr = [yearDivide4, !specialChar.includes(lastTwoChar)];
+  const trueArr = yearArr.filter((el) => el === true);
+
+  return trueArr.length === 2;
+};

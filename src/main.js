@@ -11,6 +11,7 @@ import {
   cFuge,
   leftSlide,
   longestNonrepeatingSubstring,
+  leapYear,
 } from "./expert.js";
 
 /*Challenge 1 */
@@ -72,3 +73,7 @@ console.log(leftSlide([0, 2, 2, 8, 8, 8]));
 /*Challenge 12 */
 
 console.log(longestNonrepeatingSubstring("abcabcbb"));
+
+/*Challenge 13 */
+
+console.log(leapYear(1800));
