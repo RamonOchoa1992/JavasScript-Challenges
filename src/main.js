@@ -12,6 +12,7 @@ import {
   leftSlide,
   longestNonrepeatingSubstring,
   leapYear,
+  isAuthenticSkewer,
 } from "./expert.js";
 
 /*Challenge 1 */
@@ -77,3 +78,7 @@ console.log(longestNonrepeatingSubstring("abcabcbb"));
 /*Challenge 13 */
 
 console.log(leapYear(1800));
+
+/*Challenge 14 */
+
+console.log(isAuthenticSkewer("B--A--N--A--N--A--S"));

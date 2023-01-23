@@ -51,3 +51,7 @@ https://edabit.com/challenge/vHJrWvyEiiGp5yZtX
 # Challenge 13
 
 https://edabit.com/challenge/nNtYHuSDgnCq8gFvh
+
+# Challenge 14
+
+https://edabit.com/challenge/pamfQKTuXPf7u6yne
